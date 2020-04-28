@@ -1,16 +1,22 @@
-export default `
+const types = `
   type Product {
     _id: ID!
     title: String!
     qty: Int
   }
-  type Query {
-    getProduct(_id: ID!): Product
-    allProducts: [Product]
-  }
+`;
+
+const inputs = `
   input ProductInput {
     title: String!
     qty: Int
+  }
+`;
+
+const baseTypes = `
+  type Query {
+    getProduct(_id: ID!): Product
+    allProducts: [Product]
   }
   type Mutation {
     createProduct(input: ProductInput): Product
@@ -18,3 +24,5 @@ export default `
     deleteProduct(_id: ID!): Product
   }
 `;
+
+export default `${types}${inputs}${baseTypes}`;
