@@ -1,4 +1,5 @@
 {
+  "env": "default",
   "api": {
     "port": 3333
   },

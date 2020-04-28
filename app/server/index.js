@@ -1,5 +1,6 @@
 import express from 'express';
 import graphlHTTP from 'express-graphql';
+import config from 'config';
 import schema from '../schema';
 import { logger } from '../middlewares';
 
@@ -14,7 +15,7 @@ class Server {
       '/graphql',
       graphlHTTP((req, res, graphQLParams) => ({
         schema,
-        graphiql: true,
+        graphiql: config.get('env') !== 'production',
         rootValue: logger(req, res, graphQLParams),
       }))
     );
