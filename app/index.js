@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import config from 'config';
 import mongo from './database';
 import server from './server';
