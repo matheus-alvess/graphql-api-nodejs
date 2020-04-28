@@ -6,21 +6,17 @@ import { logger } from '../middlewares';
 class Server {
   constructor() {
     this.server = express();
-    this.middlewares();
     this.routes();
-  }
-
-  middlewares() {
-    this.server.use(logger);
   }
 
   routes() {
     this.server.use(
       '/graphql',
-      graphlHTTP({
+      graphlHTTP((req, res, graphQLParams) => ({
         schema,
         graphiql: true,
-      })
+        rootValue: logger(req, res, graphQLParams),
+      }))
     );
   }
 }
