@@ -1,0 +1,8 @@
+{
+  "api": {
+    "port": 3333
+  },
+  "mongo": {
+    "uri": "mongodb://localhost/graphql"
+  }
+}
